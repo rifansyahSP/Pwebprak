@@ -55,77 +55,31 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-4">
-                    <div class="card mb-4 product-wap rounded-0">
-                        <div class="card rounded-0">
-                            <img class="card-img rounded-0 img-fluid" src="{{ asset('assets/img/expresso.jpg') }}">
-                            <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
-                                <ul class="list-unstyled">
-                                    <li><a class="btn btn-dark text-white mt-2" href="{{ route('detail') }}"><i class="far fa-eye"></i></a></li>
-                                    <li><a class="btn btn-dark text-white mt-2" href="{{ route('detail') }}"><i class="fas fa-cart-plus"></i></a></li>
-                                </ul>
+                @forelse ($menus as $menu)
+                    <div class="col-md-4">
+                        <div class="card mb-4 product-wap rounded-0">
+                            <div class="card rounded-0">
+                                <img class="card-img rounded-0 img-fluid" src="{{ asset($menu->image) }}">
+                                <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                                    <ul class="list-unstyled">
+                                        <li><a class="btn btn-dark text-white mt-2" href="{{ route('detail', $menu->id) }}"><i class="far fa-eye"></i></a></li>
+                                        <li><a class="btn btn-dark text-white mt-2" href="{{ route('client.cart.store', $menu->id) }}?quantity=1"><i class="fas fa-cart-plus"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <a href="{{ route('detail', $menu->id) }}" class="h3 text-decoration-none">{{$menu->name}}</a>
+                                <p class="text-center mb-0">Rp {{$menu->price_formatted}}</p>
                             </div>
                         </div>
-                        <div class="card-body">
-                            <a href="{{ route('detail') }}" class="h3 text-decoration-none">Kopi Expresso</a>
-                            <p class="text-center mb-0">Rp 12.000</p>
+                    </div>
+                @empty
+                    <div class="col-md-12">
+                        <div class="alert alert-warning">
+                            <p class="text-center">Tidak ada menu</p>
                         </div>
                     </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="card mb-4 product-wap rounded-0">
-                        <div class="card rounded-0">
-                            <img class="card-img rounded-0 img-fluid" src="{{ asset('assets/img/expresso.jpg') }}">
-                            <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
-                                <ul class="list-unstyled">
-                                    <li><a class="btn btn-dark text-white mt-2" href="{{ route('detail') }}"><i class="far fa-eye"></i></a></li>
-                                    <li><a class="btn btn-dark text-white mt-2" href="{{ route('detail') }}"><i class="fas fa-cart-plus"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <a href="{{ route('detail') }}" class="h3 text-decoration-none">Kopi Expresso</a>
-                            <p class="text-center mb-0">Rp 12.000</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="card mb-4 product-wap rounded-0">
-                        <div class="card rounded-0">
-                            <img class="card-img rounded-0 img-fluid" src="{{ asset('assets/img/expresso.jpg') }}">
-                            <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
-                                <ul class="list-unstyled">
-                                    <li><a class="btn btn-dark text-white mt-2" href="{{ route('detail') }}"><i class="far fa-eye"></i></a></li>
-                                    <li><a class="btn btn-dark text-white mt-2" href="{{ route('detail') }}"><i class="fas fa-cart-plus"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <a href="{{ route('detail') }}" class="h3 text-decoration-none">Kopi Expresso</a>
-                            <p class="text-center mb-0">Rp 12.000</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="card mb-4 product-wap rounded-0">
-                        <div class="card rounded-0">
-                            <img class="card-img rounded-0 img-fluid" src="{{ asset('assets/img/expresso.jpg') }}">
-                            <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
-                                <ul class="list-unstyled">
-                                    <li><a class="btn btn-dark text-white mt-2" href="{{ route('detail') }}"><i class="far fa-eye"></i></a></li>
-                                    <li><a class="btn btn-dark text-white mt-2" href="{{ route('detail') }}"><i class="fas fa-cart-plus"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <a href="{{ route('detail') }}" class="h3 text-decoration-none">Kopi Expresso</a>
-                            <p class="text-center mb-0">Rp 12.000</p>
-                        </div>
-                    </div>
-                </div>
+                @endforelse
 
             </div>
             <div div="row">

@@ -30,57 +30,36 @@
           <thead>
             <tr>
               <th>ID</th>
+              <th>Tanggal</th>
               <th>Nama Pembeli</th>
               <th>Meja</th>
               <th>Total</th>
+              <th>Status</th>
               <th>Action</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>183</td>
-              <td>Anton</td>
-              <td>12</td>
-              <td>11000</td>
-              <td>
-                <a href="" class="btn btn-info">Detail</a>
-                <a href="" class="btn btn-warning">Edit</a>
-                <a href="" class="btn btn-danger">Hapus</a>
-              </td>
-            </tr>
-            <tr>
-              <td>219</td>
-              <td>Ahmad</td>
-              <td>8</td>
-              <td>12000</td>
-              <td>
-                <a href="" class="btn btn-info">Detail</a>
-                <a href="" class="btn btn-warning">Edit</a>
-                <a href="" class="btn btn-danger">Hapus</a>
-              </td>
-            </tr>
-            <tr>
-              <td>657</td>
-              <td>Bob Doe</td>
-              <td>10</td>
-              <td>15000</td>
-              <td>
-                <a href="" class="btn btn-info">Detail</a>
-                <a href="" class="btn btn-warning">Edit</a>
-                <a href="" class="btn btn-danger">Hapus</a>
-              </td>
-            </tr>
-            <tr>
-              <td>175</td>
-              <td>Mike Doe</td>
-              <td>13</td>
-              <td>10000</td>
-              <td>
-                <a href="" class="btn btn-info">Detail</a>
-                <a href="" class="btn btn-warning">Edit</a>
-                <a href="" class="btn btn-danger">Hapus</a>
-              </td>
-            </tr>
+            @foreach ($orders as $order)
+              <tr>
+                <td>{{ $order->id }}</td>
+                <td>{{ $order->created_at }}</td>
+                <td>{{ $order->user->name }}</td>
+                <td>{{ $order->table_number }}</td>
+                <td>Rp. {{ $order->total_price_formatted }}</td>
+                <td>
+                  @if ($order->status == 'pending')
+                  <span class="badge badge-warning">Pending</span>
+                  @elseif ($order->status == 'success')
+                  <span class="badge badge-success">Success</span>
+                  @elseif ($order->status == 'canceled')
+                  <span class="badge badge-danger">Cancel</span>
+                  @endif
+                </td>
+                <td>
+                  <a href="{{ route('pesanan.detail', $order->id) }}" class="btn btn-primary btn-sm">Detail</a>
+                </td>
+              </tr>
+            @endforeach
           </tbody>
         </table>
       </div>

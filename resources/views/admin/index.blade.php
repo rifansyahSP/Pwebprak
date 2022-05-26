@@ -7,7 +7,7 @@
         <!-- Default box -->
         <div class="card">
           <div class="card-body">
-              <h4>Selamat datang admin</h4>
+              <h4>Selamat datang {{Auth::user()->name}}</h4>
           </div>
         </div>
     </section>

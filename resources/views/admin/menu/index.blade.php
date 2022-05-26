@@ -39,42 +39,25 @@
             </tr>
           </thead>
           <tbody>
+            @forelse ($menus as $menu)
             <tr>
-              <td>183</td>
-              <td>Kopi</td>
-              <td>11000</td>
+              <td>{{ $menu->id }}</td>
+              <td>{{ $menu->name }}</td>
+              <td>Rp {{ $menu->price_formatted }}</td>
               <td>
-                <a href="" class="btn btn-warning">Edit</a>
-                <a href="" class="btn btn-danger">Hapus</a>
+                <a href="{{ route('menu.edit', $menu->id) }}" class="btn btn-warning">Edit</a>
+                <form action="{{ route('menu.delete', $menu->id) }}" method="POST" class="d-inline">
+                  @csrf
+                  @method('DELETE')
+                  <button type="submit" class="btn btn-danger">Hapus</button>
+                </form>
               </td>
             </tr>
+            @empty
             <tr>
-              <td>219</td>
-              <td>Kopi Jahe</td>
-              <td>12000</td>
-              <td>
-                <a href="" class="btn btn-warning">Edit</a>
-                <a href="" class="btn btn-danger">Hapus</a>
-              </td>
+              <td colspan="4" class="text-center">Tidak ada data</td>
             </tr>
-            <tr>
-              <td>657</td>
-              <td>Bob Doe</td>
-              <td>15000</td>
-              <td>
-                <a href="" class="btn btn-warning">Edit</a>
-                <a href="" class="btn btn-danger">Hapus</a>
-              </td>
-            </tr>
-            <tr>
-              <td>175</td>
-              <td>Mike Doe</td>
-              <td>10000</td>
-              <td>
-                <a href="" class="btn btn-warning">Edit</a>
-                <a href="" class="btn btn-danger">Hapus</a>
-              </td>
-            </tr>
+            @endforelse
           </tbody>
         </table>
       </div>

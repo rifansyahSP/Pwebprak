@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-lg-5 mt-5">
                 <div class="card mb-3">
-                    <img class="card-img img-fluid" src="{{ asset('assets/img/expresso.jpg') }}" alt="Card image cap" id="product-detail">
+                    <img class="card-img img-fluid" src="{{ asset($menu->image) }}" alt="Card image cap" id="product-detail">
                 </div>
                 <div class="row">
                     <!--Start Controls-->
@@ -106,50 +106,45 @@
             <div class="col-lg-7 mt-5">
                 <div class="card">
                     <div class="card-body">
-                        <h1 class="h2">Kopi Expresso</h1>
-                        <p class="h3 py-2">RP 15.000</p>
+                        <h1 class="h2">{{$menu->name}}</h1>
+                        <p class="h3 py-2">RP {{$menu->price_formatted}}</p>
 
                         <h6>Description:</h6>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temp incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse. Donec condimentum elementum convallis. Nunc sed orci a diam ultrices aliquet interdum quis nulla.</p>
+                        <p>{{$menu->description}}</p>
                         <ul class="list-inline">
                             <li class="list-inline-item">
                                 <h6>Avaliable Color :</h6>
                             </li>
                             <li class="list-inline-item">
-                                <p class="text-muted"><strong>White / Black</strong></p>
+                                <p class="text-muted"><strong>{{$menu->available_color}}</strong></p>
                             </li>
                         </ul>
 
                         <h6>Specification:</h6>
                         <ul class="list-unstyled pb-3">
-                            <li>Lorem ipsum dolor sit</li>
-                            <li>Amet, consectetur</li>
-                            <li>Adipiscing elit,set</li>
-                            <li>Duis aute irure</li>
-                            <li>Ut enim ad minim</li>
-                            <li>Dolore magna aliqua</li>
-                            <li>Excepteur sint</li>
+                            <li>{{$menu->specification}}</li>
                         </ul>
 
-                        <form action="" method="GET">
+                        <form action="{{route('client.cart.store', $menu->id)}}" method="GET">
                             <input type="hidden" name="product-title" value="Activewear">
                             <div class="row">
                                 <div class="col-auto">
                                     <ul class="list-inline pb-3">
                                         <li class="list-inline-item text-right">
                                             Quantity
-                                            <input type="hidden" name="product-quanity" id="product-quanity" value="1">
+                                            <input type="hidden" name="quantity" id="quantity" value="1" min="1">
                                         </li>
-                                        <li class="list-inline-item"><span class="btn btn-dark" id="btn-minus">-</span></li>
+                                        <li class="list-inline-item"><span class="btn btn-dark" id="btn-minus" onclick="
+                                            if (document.getElementById('quantity').value > 1) {
+                                                document.getElementById('quantity').value--;
+                                            }
+                                            ">-</span></li>
                                         <li class="list-inline-item"><span class="badge bg-secondary" id="var-value">1</span></li>
-                                        <li class="list-inline-item"><span class="btn btn-dark" id="btn-plus">+</span></li>
+                                        <li class="list-inline-item"><span class="btn btn-dark" id="btn-plus" onclick="document.getElementById('quantity').value++">+</span></li>
                                     </ul>
                                 </div>
                             </div>
                             <div class="row pb-3">
-                                <div class="col d-grid">
-                                    <button type="submit" class="btn btn-dark btn-lg" name="submit" value="buy">Buy</button>
-                                </div>
                                 <div class="col d-grid">
                                     <button type="submit" class="btn btn-dark btn-lg" name="submit" value="addtocard">Add To Cart</button>
                                 </div>
