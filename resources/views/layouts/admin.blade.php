@@ -56,7 +56,7 @@
 
             <li class="nav-item">
               <a href="{{ route('admin') }}" class="nav-link {{ (request()->is('admin')) ? 'active' : '' }}">
-                <i class="nav-icon far fa-home"></i>
+                <i class="nav-icon fa-solid fa-house"></i>
                 <p>
                   Home
                 </p>
@@ -64,7 +64,7 @@
             </li>
             <li class="nav-item">
               <a href="{{ route('menu') }}" class="nav-link {{ (request()->is('admin/menu*')) ? 'active' : '' }}">
-                <i class="nav-icon far fa-image"></i>
+                <i class="nav-icon fa-solid fa-bars"></i>
                 <p>
                   Menu
                 </p>
@@ -72,7 +72,7 @@
             </li>
             <li class="nav-item">
               <a href="{{ route('pesanan') }}" class="nav-link {{ (request()->is('admin/pesanan*')) ? 'active' : '' }}">
-                <i class="nav-icon fas fa-columns"></i>
+                <i class="nav-icon fa-solid fa-layer-group"></i>
                 <p>
                   Pesanan
                 </p>

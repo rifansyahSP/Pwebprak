@@ -1,27 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>List Order</title>
-</head>
-<body>
-    <h1>Order</h1>
-    <p>Status: {{$order->status}}</p>
-    <p>Table Number: {{$order->table_number}}</p>
-    <p>Total Harga: Rp {{$order->total_price_formatted}}</p>
-    <p>Tanggal Order: {{$order->created_at}}</p>
-    @foreach ($order->carts as $cart)
-        <ol>
-            <li>
-                <img src="{{asset($cart->menu->image)}}" width="200">
-                <p>Nama: {{ $cart->menu->name }}</p>
-                <p>Qty: {{ $cart->quantity }}</p>
-                <p>Sub Harga: Rp {{ $cart->total_price_formatted }}</p>
+@extends('layouts.client')
+
+@section('content')
+<div class="container py-5">
+    <div class="row">
+        <h1>Order</h1>
+        <p class="mb-1">Status: {{$order->status}}</p>
+        <p class="mb-1">Table Number: {{$order->table_number}}</p>
+        <p class="mb-1">Total Harga: Rp {{$order->total_price_formatted}}</p>
+        <p>Tanggal Order: {{$order->created_at}}</p>
+        <ol class="card shadow-sm p-4">
+            @foreach ($order->carts as $cart)
+            <li class="d-flex flex-row">
+                <div class="col-4 text-center">
+                    <img class="img-fluid" src="{{asset($cart->menu->image)}}" style="height: 150px">
+                </div>
+                <div class="col-auto">
+                    <p class="fw-bold">Nama: {{ $cart->menu->name }}</p>
+                    <p>Qty: {{ $cart->quantity }}</p>
+                    <p>Sub Harga: Rp {{ $cart->total_price_formatted }}</p>
+                </div>
             </li>
-            </li>
+            <hr>
+            @endforeach
         </ol>
-    @endforeach
-</body>
-</html>
+    </div>
+</div>
+@endsection

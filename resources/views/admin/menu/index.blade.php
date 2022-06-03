@@ -49,7 +49,7 @@
                 <form action="{{ route('menu.delete', $menu->id) }}" method="POST" class="d-inline">
                   @csrf
                   @method('DELETE')
-                  <button type="submit" class="btn btn-danger">Hapus</button>
+                  <button type="submit" class="btn btn-danger" onclick="return confirm('Yakin ingin menghapus?')">Hapus</button>
                 </form>
               </td>
             </tr>

@@ -1,12 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Cart Client</title>
-</head>
-<body>
+@extends('layouts.client')
+
+@section('content')
+<div class="container py-5">
+    <div class="row">
     {{-- show error --}}
     @if ($errors->any())
         <div class="alert alert-danger">
@@ -19,25 +15,34 @@
     @endif
     <ol>
         @forelse ($carts as $cart)
-            <li>
-                <img src="{{asset($cart->menu->image)}}" width="200">
-                <p>Nama: {{ $cart->menu->name }}</p>
-                <p>Qty: {{ $cart->quantity }}</p>
-                <p>Sub Harga: Rp {{ $cart->total_price_formatted }}</p>
-                <a href="{{route('client.cart.delete', $cart->id)}}">Hapus</a>
+            <li class="d-flex flex-row">
+                <div class="col-4 text-center">
+                    <img class="img-fluid" src="{{asset($cart->menu->image)}}" style="height: 250px">
+                </div>
+                <div class="col-auto">
+                    <p class="fw-bold">Nama: {{ $cart->menu->name }}</p>
+                    <p>Qty: {{ $cart->quantity }}</p>
+                    <p>Sub Harga: Rp {{ $cart->total_price_formatted }}</p>
+                    <a class="btn btn-danger" href="{{route('client.cart.delete', $cart->id)}}">Hapus</a>
+                </div>
             </li>
+            <hr>
         @empty
             <p>Keranjang Kosong</p>
         @endforelse
-    </ol> 
+    </ol>
     @if ($carts->count() > 0)
-        <p>Total Harga: Rp {{ $total_price_formatted }}</p>
+        <h4 class="mb-4 text-end">Total Harga: Rp {{ $total_price_formatted }}</h4>
         <hr>
         <form action="{{route('client.order.checkout')}}" method="POST">
             @csrf
-            <input type="number" name="table_number" id="table_number" min="1" max="12" placeholder="table number" width="200"></br>
-            <button type="submit">Checkout</button>
+            <div class="form-group d-flex flex-row align-items-center">
+                <p class="m-0 me-2">Nomor Meja :</p>
+                <input class="form-control col me-2" type="number" name="table_number" id="table_number" min="1" max="99">
+                <button type="submit" class="col-2 btn btn-primary">Checkout</button>
+            </div>
         </form>
-    @endif       
-</body>
-</html>
+    @endif
+    </div>
+</div>
+@endsection

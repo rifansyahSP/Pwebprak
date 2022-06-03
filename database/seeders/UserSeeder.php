@@ -20,7 +20,7 @@ class UserSeeder extends Seeder
         for ($i = 0; $i < 10; $i++) {
             DB::table('users')->insert([
                 'name' => $faker->name,
-                'type' => $i == 5 ? 'admin' : 'client',
+                'type' => $i >= 5 ? 'admin' : 'client',
                 'email' => $faker->unique()->email,
                 'password' => $password,
                 'created_at' => now(),

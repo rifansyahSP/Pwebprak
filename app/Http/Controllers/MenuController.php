@@ -23,8 +23,6 @@ class MenuController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'price' => 'required|numeric',
-            'available_color' => 'required|string|max:255',
-            'specification' => 'required|string|max:255',
             'description' => 'required|string|max:255',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
@@ -38,8 +36,6 @@ class MenuController extends Controller
         Menu::create([
             'name' => $request->input('name'),
             'price' => $request->input('price'),
-            'available_color' => $request->input('available_color'),
-            'specification' => $request->input('specification'),
             'description' => $request->input('description'),
             'image' => '/img/menu/' . $imageName,
         ]);
@@ -58,8 +54,6 @@ class MenuController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'price' => 'required|numeric',
-            'available_color' => 'required|string|max:255',
-            'specification' => 'required|string|max:255',
             'description' => 'required|string|max:255',
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
@@ -68,8 +62,6 @@ class MenuController extends Controller
         Menu::find($id)->update([
             'name' => $request->input('name'),
             'price' => $request->input('price'),
-            'available_color' => $request->input('available_color'),
-            'specification' => $request->input('specification'),
             'description' => $request->input('description'),
         ]);
 

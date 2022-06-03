@@ -17,8 +17,6 @@ class CreateMenusTable extends Migration
             $table->id();
             $table->string('name');
             $table->integer('price');
-            $table->string('available_color');
-            $table->string('specification');
             $table->string('description');
             $table->string('image');
             $table->timestamps();
