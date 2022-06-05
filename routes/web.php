@@ -60,6 +60,7 @@ Route::group(['prefix' => 'admin'], function(){
             Route::get('/', [MenuController::class, 'index'])->name('menu');
             Route::get('create', [MenuController::class, 'create'])->name('menu.create');
             Route::post('create', [MenuController::class, 'store']);
+            Route::get('detail/{id}', [MenuController::class, 'detail'])->name('menu.detail');
             Route::get('edit/{id}', [MenuController::class, 'edit'])->name('menu.edit');
             Route::post('edit/{id}', [MenuController::class, 'update']);
             Route::delete('delete/{id}', [MenuController::class, 'destroy'])->name('menu.delete');

@@ -44,6 +44,11 @@ class MenuController extends Controller
         return redirect()->route('menu')->with('success', 'Menu created successfully.');
     }
 
+    public function detail($id) {
+        $menu = Menu::find($id);
+        return view('admin.menu.detail', compact('menu'));
+    }
+
     public function edit($id) {
         $menu = Menu::find($id);
         return view('admin.menu.edit', compact('menu'));

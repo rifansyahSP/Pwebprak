@@ -45,11 +45,22 @@
               <td>{{ $menu->name }}</td>
               <td>Rp {{ $menu->price_formatted }}</td>
               <td>
-                <a href="{{ route('menu.edit', $menu->id) }}" class="btn btn-warning">Edit</a>
+                {{-- Detail --}}
+                <a href="{{ route('menu.detail', $menu->id) }}" class="btn btn-info">
+                  <i class="fas fa-eye"></i>
+                  Detail
+                </a>
+                <a href="{{ route('menu.edit', $menu->id) }}" class="btn btn-warning">
+                  <i class="fas fa-edit"></i>
+                  Edit
+                </a>
                 <form action="{{ route('menu.delete', $menu->id) }}" method="POST" class="d-inline">
                   @csrf
                   @method('DELETE')
-                  <button type="submit" class="btn btn-danger" onclick="return confirm('Yakin ingin menghapus?')">Hapus</button>
+                  <button type="submit" class="btn btn-danger" onclick="return confirm('Yakin ingin menghapus?')">
+                    <i class="fas fa-trash"></i>
+                    Hapus
+                  </button>
                 </form>
               </td>
             </tr>
