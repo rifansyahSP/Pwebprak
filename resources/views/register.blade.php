@@ -19,7 +19,7 @@
                         <div class="row g-0">
                             <div class="col-md-6 col-lg-7 d-flex align-items-center">
                                 <div class="card-body p-4 p-lg-5 text-black">
-                                    <form action="{{route('client.register')}}" method="post">
+                                    <form action="{{route('register')}}" method="post">
                                         @csrf
 
                                         <div class="d-flex align-items-center mb-3 pb-1">
@@ -61,7 +61,7 @@
                                         <div class="form-outline mb-4">
                                             <input type="password" id="form2Example27" name="password_confirmation"
                                                 class="form-control form-control-lg" />
-                                            <label class="form-label" for="form2Example27">Password</label>
+                                            <label class="form-label" for="form2Example27">Password Confirmation</label>
                                         </div>
 
                                         <div class="pt-1 mb-4">
@@ -69,7 +69,7 @@
                                         </div>
 
                                         <p class="pb-lg-2" style="color: #393f81;">Sudah punya akun? <a
-                                                href="{{ route('client.login') }}" style="color: #393f81;">Login</a></p>
+                                                href="{{ route('login') }}" style="color: #393f81;">Login</a></p>
                                     </form>
 
                                 </div>

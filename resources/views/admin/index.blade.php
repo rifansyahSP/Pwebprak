@@ -8,7 +8,7 @@
         <div class="card">
           <div class="card-body">
               <h4>Selamat datang {{Auth::user()->name}}</h4>
-              <a href="{{ route('admin.logout') }}" class="btn btn-primary">Logout</a>
+              <a href="{{ route('logout') }}" class="btn btn-primary">Logout</a>
           </div>
         </div>
     </section>

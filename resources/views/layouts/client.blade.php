@@ -60,12 +60,12 @@
                         {{ auth()->user()->name }}
                     </a>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                      <a class="dropdown-item" href="{{ route('client.logout') }}">Logout</a>
+                      <a class="dropdown-item" href="{{ route('logout') }}">Logout</a>
                     </div>
                   </div>
                 @else
                 <div class="navbar align-self-center d-flex">
-                    <a class="nav-icon position-relative text-decoration-none" href="{{ route('client.login') }}">
+                    <a class="nav-icon position-relative text-decoration-none" href="{{ route('login') }}">
                         Login
                     </a>
                 </div>

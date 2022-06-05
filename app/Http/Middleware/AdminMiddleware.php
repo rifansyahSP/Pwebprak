@@ -23,7 +23,7 @@ class AdminMiddleware
             if (Auth::check()) {
                 Auth::logout();
             }
-            return redirect()->route('admin.login')->with('error', 'Anda harus login');
+            return redirect()->route('login')->with('error', 'Anda harus login sebagai admin');
         }
     }
 }

@@ -20,7 +20,7 @@
                             <div class="col-md-6 col-lg-7 d-flex align-items-center">
                                 <div class="card-body p-4 p-lg-5 text-black">
 
-                                    <form action="{{route('client.login')}}" method="post">
+                                    <form action="{{route('login')}}" method="post">
                                         @csrf
 
                                         <div class="d-flex align-items-center mb-3 pb-1">
@@ -32,13 +32,18 @@
                                         </h5>
                                         {{-- show error --}}
                                         @if ($errors->any())
-                                        <div class="alert alert-danger mb-4">
-                                            <ul>
-                                                @foreach ($errors->all() as $error)
-                                                <li>{{ $error }}</li>
-                                                @endforeach
-                                            </ul>
-                                        </div>
+                                            <div class="alert alert-danger mb-4">
+                                                <ul>
+                                                    @foreach ($errors->all() as $error)
+                                                    <li>{{ $error }}</li>
+                                                    @endforeach
+                                                </ul>
+                                            </div>
+                                        @endif
+                                        @if (Session::has('error'))
+                                            <div class="alert alert-danger mb-4">
+                                                {{ Session::get('error') }}
+                                            </div>
                                         @endif
                                         <div class="form-outline mb-4">
                                             <input type="email" id="form2Example17" name="email"
@@ -57,7 +62,7 @@
                                         </div>
 
                                         <p class="pb-lg-2" style="color: #393f81;">Belum punya akun? <a
-                                                href="{{ route('client.register') }}" style="color: #393f81;">Daftar</a>
+                                                href="{{ route('register') }}" style="color: #393f81;">Daftar</a>
                                         </p>
                                     </form>
 
