@@ -3,6 +3,10 @@
 @section('content')
 <div class="container py-5">
     <div class="row">
+        <h1 class="mb-4">
+            <i class="fa-solid fa-cart-shopping"></i>
+            Cart</h1>
+        <hr>
     {{-- show error --}}
     @if ($errors->any())
         <div class="alert alert-danger">

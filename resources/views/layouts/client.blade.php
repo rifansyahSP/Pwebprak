@@ -50,7 +50,7 @@
                         <i class="fa-solid fa-cart-shopping"></i>
                     </a>
                     <a class="nav-icon position-relative text-decoration-none" href="{{ route('client.order.checkout') }}">
-                        <i class="fa-solid fa-wallet"></i>
+                        <i class="fa-solid fa-receipt"></i>
                     </a>
                 </div>
                 <div class="dropdown">

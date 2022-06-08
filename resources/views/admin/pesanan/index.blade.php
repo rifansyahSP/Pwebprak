@@ -56,7 +56,9 @@
                   @endif
                 </td>
                 <td>
-                  <a href="{{ route('pesanan.detail', $order->id) }}" class="btn btn-primary btn-sm">Detail</a>
+                  <a href="{{ route('pesanan.detail', $order->id) }}" class="btn btn-info btn-sm">
+                    <i class="fas fa-eye"></i>
+                    Detail</a>
                 </td>
               </tr>
             @endforeach
