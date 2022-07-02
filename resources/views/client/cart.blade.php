@@ -17,6 +17,12 @@
             </ul>
         </div>
     @endif
+    {{-- session error --}}
+    @if (session('error'))
+        <div class="alert alert-danger">
+            {{ session('error') }}
+        </div>
+    @endif
     <ol>
         @forelse ($carts as $cart)
             <li class="d-flex flex-row">

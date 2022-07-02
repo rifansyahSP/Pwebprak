@@ -9,7 +9,16 @@ class OrderController extends Controller
 {
     public function index() {
         $order = auth()->user()->orders->where('status', '=', 'pending')->first();
-        return view('client.checkout', compact('order'));
+        if ($order) {
+            return view('client.checkout', compact('order'));
+        } else {
+            return redirect()->route('client.cart')->with('error', 'Belum ada order yang dipesan');
+        }
+    }
+
+    public function history() {
+        $orders = auth()->user()->orders->where('status', '!=', 'pending');
+        return view('client.history', compact('orders'));
     }
 
     public function checkout(Request $request) {

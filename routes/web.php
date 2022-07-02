@@ -35,10 +35,14 @@ Route::group(['middleware' => 'client'], function() {
         Route::get('{id}', [CartController::class, 'store'])->name('client.cart.store');
         Route::get('{id}/delete', [CartController::class, 'destroy'])->name('client.cart.delete');
     });
-    
+
     Route::group(['prefix' => 'order'], function() {
         Route::get('checkout', [OrderController::class, 'index'])->name('client.order.checkout');
         Route::post('checkout', [OrderController::class, 'checkout']);
+    });
+
+    Route::group(['prefix' => 'riwayat'], function() {
+        Route::get('/', [OrderController::class, 'history'])->name('client.history');
     });
 });
 
