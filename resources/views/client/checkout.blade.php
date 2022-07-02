@@ -7,6 +7,7 @@
             <i class="fa-solid fa-receipt"></i>
             Receipt</h1>
         <hr>
+        <h4>Tunggu kasir mengkonfirmasi pesanan Anda</h4>
         <p class="mb-1">Status: {{$order->status}}</p>
         <p class="mb-1">Table Number: {{$order->table_number}}</p>
         <p class="mb-1">Total Harga: Rp {{$order->total_price_formatted}}</p>

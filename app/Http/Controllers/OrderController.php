@@ -12,7 +12,7 @@ class OrderController extends Controller
         if ($order) {
             return view('client.checkout', compact('order'));
         } else {
-            return redirect()->route('client.cart')->with('error', 'Belum ada order yang dipesan');
+            return redirect()->route('client.cart')->with('error', 'Chekout terlebih dahulu pesanan untuk melihat Receipt');
         }
     }
 

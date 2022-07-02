@@ -52,6 +52,9 @@
                     <a class="nav-icon position-relative text-decoration-none" href="{{ route('client.order.checkout') }}">
                         <i class="fa-solid fa-receipt"></i>
                     </a>
+                    <a class="nav-icon position-relative text-decoration-none" href="{{ route('client.history') }}">
+                        <i class="fa-solid fa-history"></i>
+                    </a>
                 </div>
                 <div class="dropdown">
                     <a class="d-flex align-items-center bg-dark py-2 px-3 ms-2 dropdown-toggle text-white"
